@@ -107,6 +107,26 @@ def standard_plot(Data,Ice):
     ax[3].set_title('Distribution of residuals per year')
     ax[3].set_xlim([-70,70])
 
+
+    # Create a ScalarMappable for color mapping
+    sm = ScalarMappable(cmap=plt.cm.viridis, norm=plt.Normalize(vmin=min(years), vmax=max(years)))
+    sm.set_array([])  # Empty array since we just want to map colors
+
+    # Add color bar
+    cbar = plt.colorbar(sm, ax=ax)
+    cbar.set_label('Years')
+
+
+
+
+
+
+
+
+
+
+
+
     # normal fit
     aggregated_data=filtered_data['Residuals'] 
     mu, std = norm.fit(aggregated_data)
