@@ -17,7 +17,8 @@ def Filter_Numpify(df,T_0,T_f,numpyfy=False,multiyear=[]):
     
     """
     if multiyear:
-        df = df.loc[years.isin(years_to_filter)]
+        print('multi')
+        df = df.loc[df.index.year.isin(multiyear)]
     else:
         mask = df.index.to_series().between(T_0,T_f)
         df=df[mask]
