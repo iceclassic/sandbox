@@ -1,4 +1,4 @@
-def Filter_Numpify(df,T_0,T_f,numpyfy=False):
+def Filter_Numpify(df,T_0,T_f,numpyfy=False,multiyear=[]):
     """ 
 
     numpyfy:
@@ -10,11 +10,17 @@ def Filter_Numpify(df,T_0,T_f,numpyfy=False):
     filter
     ================================
     T_0= initial date for mask, format = ` 'yyyy-mm-dd' `
-    T_f= initial date for mask, format = ` 'yyyy-mm-dd' `
+    T_f= initial date for mask, format = ` 'yyyy-mm-dd'
+     
+    If multiyear argument is present we filter the selected years ( only accepts list of years)
+
     
     """
-    mask = df.index.to_series().between(T_0,T_f)
-    df=df[mask]
+    if multiyear:
+        df = df.loc[years.isin(years_to_filter)]
+    else:
+        mask = df.index.to_series().between(T_0,T_f)
+        df=df[mask]
 
     if numpyfy:
         df['Year'] = df.index.year.astype(int)
