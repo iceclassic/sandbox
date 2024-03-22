@@ -12,7 +12,7 @@ def Filter_Numpify(df,T_0,T_f,numpyfy=False,multiyear=[]):
     T_0= initial date for mask, format = ` 'yyyy-mm-dd' `
     T_f= initial date for mask, format = ` 'yyyy-mm-dd'
      
-    If multiyear argument is present we filter the selected years ( only accepts list of years)
+    If multiyear argument is present we filter the selected years ( only accepts list of years) and we ignore T0 anf Tf
 
     
     """
