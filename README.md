@@ -58,7 +58,7 @@ Data=pd.read_csv('Time_series_DATA.txt',skiprows=149,index_col=0)`
 Data.index=pd.to_datetime(Data.index):
 ```
 
-The ```skiprows```, is included to avoid loading the sources and metadata.
+The ```skiprows```, is included to avoid loading the sources/licences and metadata of our individual timeseries.
 A quick inspection of the data can now be easily made with
 
 ```python
